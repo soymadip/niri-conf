@@ -1,0 +1,69 @@
+
+//------------------- Misc Windows --------------------
+
+window-rule {
+    match title=r#"(?i).*(float|blueman-manager|zenity|yad|nwg-look).*"#
+
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"float|floating"#
+
+    open-floating true
+}
+
+//----------------- Float setting windows --------------------
+window-rule {
+    match title=r#"(?i).*(settings|preferences|configuration|configure).*"#
+
+    open-floating true
+
+    default-column-width  { fixed 796; }
+    default-window-height { fixed 541; }
+}
+
+//--------------- Picture-in-Picture ---------------
+window-rule {
+    match title=r#"(?i).*(picture-in-picture|pip).*"#
+    open-floating true
+}
+
+//-------------------- Kasts -----------------------
+window-rule {
+    match app-id="org.kde.kasts"
+
+    open-floating true
+    default-column-width  { fixed 1146; }
+    default-window-height { fixed 770;  }
+}
+
+//------------- Block from screenRecord --------------
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screencast"
+}
+
+window-rule {
+    match app-id="mpv"
+    variable-refresh-rate true
+}
+
+//--------------- KeePassXC float ---------------
+window-rule {
+    match app-id=r#"org.keepassxc.KeePassXC"#
+
+    open-floating true
+    default-column-width  { fixed 1104; }
+    default-window-height { fixed 702;  }
+}
+
+// secondary windows
+window-rule {
+    match app-id="org.keepassxc.KeePassXC" title=r#"(?i).*(Unlock Database|\[Locked\]|About KeePassXC|Access Request).*"#
+
+    default-column-width  { fixed 700; }
+    default-window-height { fixed 371; }
+}
