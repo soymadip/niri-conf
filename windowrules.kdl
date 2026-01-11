@@ -26,7 +26,12 @@ window-rule {
 //--------------- Picture-in-Picture ---------------
 window-rule {
     match title=r#"(?i).*(picture-in-picture|pip).*"#
+
     open-floating true
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+
+    default-column-width  { fixed 541; }
+    default-window-height { fixed 305; }
 }
 
 //-------------------- Kasts -----------------------
@@ -66,4 +71,50 @@ window-rule {
 
     default-column-width  { fixed 700; }
     default-window-height { fixed 371; }
+}
+
+//--------------- File Operation Dialog -------------------
+window-rule {
+    match app-id="(?i).*(xdg-desktop-portal).*"
+    match title="(?i).*(file operation|open file|open document|save file|save as|select a Folder|choose|upload|open|save|select|select recording directory|add folder|add dir|add file)(.*)"
+
+    open-floating true
+    default-column-width  { fixed 1036; }
+    default-window-height { fixed 638;  }
+}
+
+//-------------------- InkScape -------------------
+window-rule {
+    match app-id="org.inkscape.Inkscape|import_web_image.py" title="(?i).*(import).*"
+
+    open-floating true
+    default-column-width  { fixed 898; }
+    default-window-height { fixed 640; }
+}
+
+//-------------------- KDE Connect -------------------
+window-rule {
+    match app-id="(?i).*(kdeconnect).*"
+
+    open-floating true
+    default-column-width  { fixed 911; }
+    default-window-height { fixed 614; }
+}
+
+//----------------- Torrent Clients -------------------
+window-rule {
+    match app-id="(?i).*(ktorrent|transmission-qt)"
+
+    open-floating true
+    default-column-width  { fixed 1200; }
+    default-window-height { fixed 802; }
+}
+
+//-------------------- Satty -------------------
+window-rule {
+    match app-id="(?i).*(com.gabm.satty)"
+
+    open-floating true
+    default-column-width  { fixed 967; }
+    default-window-height { fixed 549; }
 }

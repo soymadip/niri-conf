@@ -10,11 +10,6 @@ recent-windows {
     }
 }
 
-// fix windows opening in maximized/without frame
-window-rule {
-    open-maximized-to-edges false
-}
-
 cursor {
     xcursor-theme "catppuccin-mocha-maroon-cursors"
     xcursor-size 30
@@ -22,6 +17,19 @@ cursor {
     hide-when-typing
 }
 
+window-rule {
+    geometry-corner-radius 7
+    clip-to-geometry true
+
+    open-maximized-to-edges false  // fix windows opening in wierd borderless max mode
+}
+
+window-rule {
+    opacity 0.93
+    draw-border-with-background false
+
+    exclude app-id="brave-browser|firefox|zen|inkscape|mpv"
+}
 
 layout {
     gaps 4
@@ -41,6 +49,7 @@ layout {
     focus-ring { off; }
 
     border {
+        on
         width 2
 
         active-color   "#ee99a0"
@@ -59,10 +68,6 @@ layout {
     }
 }
 
-window-rule {
-    geometry-corner-radius 7
-    clip-to-geometry true
-}
 
 animations {
     // Uncomment to turn off all animations.
@@ -74,18 +79,11 @@ animations {
 
 // All windows with slight transparency
 window-rule {
-    opacity 0.93
-    draw-border-with-background false
+
 }
 
 // Terminals with more transparency
 window-rule {
     match app-id="gnome-terminal|konsole|wezterm|alacritty|kitty|urxvt|st|foot"
     opacity 0.76
-}
-
-// Some windows with full opacity
-window-rule {
-    match app-id="brave-browser|firefox|zen|zed|inkscape|mpv"
-    opacity 1.0
 }
